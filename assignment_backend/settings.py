@@ -38,8 +38,6 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "common",
-    "secret1",
-    "secret2",
     "newapp",
 ]
 
@@ -136,16 +134,16 @@ import sys
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Add the directory containing 'external_app' to Python's path
-EXTERNAL_APP_DIR = os.path.abspath(os.path.join(BASE_DIR, '../PVT'))
+SHARED_DIR = os.path.abspath(os.path.join(BASE_DIR, '/shared'))
 
-sys.path.append(EXTERNAL_APP_DIR)
+sys.path.append(SHARED_DIR)
 
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
-# Load the .env file from the external directory
-dotenv_path = os.path.join(EXTERNAL_APP_DIR, '.env')
-load_dotenv(dotenv_path)
+# # Load the .env file from the external directory
+# dotenv_path = os.path.join(SHARED_DIR, '.env')
+# load_dotenv(dotenv_path)
 
-# Now you can access environment variables
-SECRET_KEY = os.getenv('SECRET_KEY')
-DEBUG = os.getenv('DEBUG', 'False') == 'True'  # Convert string to boolean
+# # Now you can access environment variables
+# SECRET_KEY = os.getenv('SECRET_KEY')
+# DEBUG = os.getenv('DEBUG', 'False') == 'True'  # Convert string to boolean
