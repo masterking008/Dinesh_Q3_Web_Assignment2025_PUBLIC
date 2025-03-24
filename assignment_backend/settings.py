@@ -127,3 +127,25 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = "common.CustomUser"
+
+
+import os
+import sys
+
+# Get the base directory of the Django project
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Add the directory containing 'external_app' to Python's path
+EXTERNAL_APP_DIR = os.path.abspath(os.path.join(BASE_DIR, '../PVT'))
+
+sys.path.append(EXTERNAL_APP_DIR)
+
+from dotenv import load_dotenv
+
+# Load the .env file from the external directory
+dotenv_path = os.path.join(EXTERNAL_APP_DIR, '.env')
+load_dotenv(dotenv_path)
+
+# Now you can access environment variables
+SECRET_KEY = os.getenv('SECRET_KEY')
+DEBUG = os.getenv('DEBUG', 'False') == 'True'  # Convert string to boolean
