@@ -134,7 +134,7 @@ import sys
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Add the directory containing 'external_app' to Python's path
-SHARED_DIR = os.path.abspath(os.path.join(BASE_DIR, '/shared'))
+SHARED_DIR = os.path.abspath(os.path.join(BASE_DIR, 'shared'))
 
 sys.path.append(SHARED_DIR)
 
